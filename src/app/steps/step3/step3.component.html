@@ -1,0 +1,63 @@
+<h1>Step 3: Summary</h1>
+<h3>Your Tesla {{ selectedTeslaData?.selectedModel?.description }}</h3>
+
+<div class="container">
+  <!-- car model details -->
+  <div class="row">
+    <div class="col-sm-5">
+      <b>{{ selectedTeslaData?.selectedConfig?.description }}</b>
+      <p>Range: {{ selectedTeslaData?.selectedConfig?.range }} - Max Speed: {{ selectedTeslaData?.selectedConfig?.speed }}</p>
+    </div>
+    <div class="col-sm-7">
+      {{selectedTeslaData?.selectedConfig?.price | currency }}
+    </div>
+  </div>
+  <br>
+
+  <!-- car color details -->
+  <div class="row">
+    <div class="col-sm-5">
+      <b>{{selectedTeslaData?.selectedColor?.description }}</b>
+    </div>
+    <div class="col-sm-7">
+      {{selectedTeslaData?.selectedColor?.price | currency }}
+    </div>
+  </div>
+  <br>
+
+  <!-- car options details -->
+  <div class="row">
+    <ng-template [ngIf]="selectedTeslaData?.includeTow">
+      <div class="col-sm-5">
+        <b>Tow Hitch Package</b>
+      </div>
+      <div class="col-sm-7">
+        {{1000 | currency }}
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="selectedTeslaData?.includeYoke">
+      <br>
+      <div class="col-sm-5">
+        <b>Yoke Steering Wheel</b>
+      </div>
+      <div class="col-sm-7">
+        {{1000 | currency }}
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<!-- total -->
+<hr>
+<div class="row">
+  <div class="col-sm-5">Total Cost</div>
+  <div class="col-sm-7">
+    {{ (
+      (selectedTeslaData?.selectedColor?.price || 0)
+    + (selectedTeslaData?.includeTow === true ? 1000 : 0)
+    + (selectedTeslaData?.includeYoke === true ? 1000 : 0)
+    + (selectedTeslaData?.selectedConfig?.price || 0)
+    ) | currency }}
+  </div>
+</div>
+<hr>
