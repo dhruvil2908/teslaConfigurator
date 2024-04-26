@@ -14,11 +14,11 @@ import { SharedDataService } from '../../services/shared-data.service';
 })
 export class Step2Component {
   @Input() model!: string;
-  protected includeYoke: boolean = false;
-  protected includeTow: boolean = false;
-  protected configs: ConfigOptions[] = [];
-  protected selectedConfig: ConfigOptions | undefined;
-  protected selectedOptions: TeslaOptions = {};
+  includeYoke: boolean = false;
+  includeTow: boolean = false;
+  configs: ConfigOptions[] = [];
+  selectedConfig: ConfigOptions | undefined;
+  selectedOptions: TeslaOptions = {};
 
   constructor(private teslaModelService: TeslaModelService, private sharedDataService: SharedDataService) { }
 
@@ -44,9 +44,7 @@ export class Step2Component {
   }
 
   setModelConfig(config: ConfigOptions | undefined) {
-    if (config !== undefined) {
-      this.sharedDataService.setTeslaConfigs(config);
-    }
+    this.sharedDataService.setTeslaConfigs(config);
   }
 
   setModelOptions(option: string) {

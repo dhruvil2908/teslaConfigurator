@@ -1,5 +1,4 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { TeslaOptions } from '../models/teslaModels';
 import { inject } from '@angular/core';
 import { SharedDataService } from '../services/shared-data.service';
 
