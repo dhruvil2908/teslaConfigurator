@@ -17,4 +17,8 @@ export const routes: Routes = [
     loadComponent: () => import('./steps/step3/step3.component').then(m => m.Step3Component),
     canActivate: [stepsGuard]
   },
+  {
+    path: '**',
+    redirectTo: ''
+  },
 ];

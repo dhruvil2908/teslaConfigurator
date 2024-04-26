@@ -45,13 +45,13 @@ export class SharedDataService {
     });
   }
 
-  setTeslaOptions(options: string) {
+  setTeslaOptions(options: string, value: boolean) {
     this.teslaModelDetails.update((data) => {
       if (options === 'towHitch') {
-        data.includeTow = true;
+        data.includeTow = value;
       }
       if (options === 'yoke') {
-        data.includeYoke = true
+        data.includeYoke = value
       }
       return data;
     });

@@ -47,7 +47,7 @@ export class Step2Component {
     this.sharedDataService.setTeslaConfigs(config);
   }
 
-  setModelOptions(option: string) {
-    this.sharedDataService.setTeslaOptions(option);
+  setModelOptions(option: string, value: boolean = false) {
+    this.sharedDataService.setTeslaOptions(option, value);
   }
 }
